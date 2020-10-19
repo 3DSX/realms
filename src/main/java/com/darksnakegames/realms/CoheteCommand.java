@@ -8,7 +8,6 @@ import org.mineacademy.fo.command.SimpleCommand;
 public class CoheteCommand extends SimpleCommand {
 	protected CoheteCommand() {
 		super("fuego");
-		final CoheteCommand cm = new CoheteCommand();
 
 		//final List<String> lista = new ArrayList<>();
 	}
