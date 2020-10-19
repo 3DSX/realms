@@ -6,8 +6,6 @@ import org.bukkit.entity.Player;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class CoheteCommand extends SimpleCommand {
-
-
 	protected CoheteCommand() {
 		super("fuego");
 		final CoheteCommand cm = new CoheteCommand();
