@@ -1,5 +1,6 @@
 package com.darksnakegames.realms;
 
+import fr.xephi.authme.listener.PlayerListener;
 import lombok.val;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -13,6 +14,7 @@ public class RealmsPlugin extends SimplePlugin {
 	public void onPluginStart() {
 
 		registerCommand(new CoheteCommand());
+		registerEvents(new PlayerListener());
 
 	}
 
