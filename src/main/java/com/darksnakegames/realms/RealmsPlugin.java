@@ -15,8 +15,8 @@ public class RealmsPlugin extends SimplePlugin {
 
 		registerCommand(new CoheteCommand());
 		registerEvents(new PlayerListener());
-
 	}
+
 
 	@EventHandler
 	public void onJoin(final PlayerJoinEvent event) {
