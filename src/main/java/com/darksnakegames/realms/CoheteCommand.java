@@ -9,7 +9,7 @@ public class CoheteCommand extends SimpleCommand {
 	protected CoheteCommand() {
 		super("fuego");
 
-		//final List<String> lista = new ArrayList<>();
+		//final List<String> lista = new ArrayList<>()
 	}
 
 	@Override
