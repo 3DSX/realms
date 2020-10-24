@@ -52,12 +52,7 @@ public class EntitySpawnCommand extends SimpleCommand {
 			location = getPlayer().getLocation();
 		}
 
-		try {
-			location.getWorld().spawnEntity(location, entity);
-		} catch (final NullPointerException ex) {
-			returnTell("An error ocurred. ERR EBN9C. Maybe the world?");
-			ex.printStackTrace();
-		}
+		checkNotNull(location.getWorld().spawnEntity(location, entity), "An error ocurred. ERR EBN9C. Maybe the world does not exist?");
 
 		tell("&eSpawned " + entity.toString() + " in " + Common.shortLocation(location));
 
@@ -65,7 +60,7 @@ public class EntitySpawnCommand extends SimpleCommand {
 
 	private boolean checkWorldExists(final String world) {
 		for (final String mundotmp : Common.getWorldNames()) {
-			if (world == mundotmp)
+			if (mundotmp.equals(world))
 				return true;
 		}
 
