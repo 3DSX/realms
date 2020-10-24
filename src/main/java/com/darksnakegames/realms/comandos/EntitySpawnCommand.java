@@ -12,7 +12,7 @@ public class EntitySpawnCommand extends SimpleCommand {
 		super("crear");
 
 		setMinArguments(1);
-		setUsage("<type> [x] [y [z] [world]");
+		setUsage("<type> [x] [y] [z] [world]");
 		setDescription("Create a creature");
 	}
 
@@ -58,7 +58,7 @@ public class EntitySpawnCommand extends SimpleCommand {
 
 	}
 
-	private boolean checkWorldExists(final String world) {
+	private static boolean checkWorldExists(final String world) {
 		for (final String mundotmp : Common.getWorldNames()) {
 			if (mundotmp.equals(world))
 				return true;
