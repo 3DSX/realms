@@ -1,4 +1,4 @@
-package com.darksnakegames.realms;
+package com.darksnakegames.realms.comandos;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
@@ -6,8 +6,10 @@ import org.bukkit.entity.Player;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class CoheteCommand extends SimpleCommand {
-	protected CoheteCommand() {
+	public CoheteCommand() {
 		super("fuego");
+
+		setDescription("Cohete de bienvenida");
 
 		//final List<String> lista = new ArrayList<>()
 	}

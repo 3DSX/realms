@@ -1,6 +1,8 @@
 package com.darksnakegames.realms;
 
-import fr.xephi.authme.listener.PlayerListener;
+import com.darksnakegames.realms.comandos.CoheteCommand;
+import com.darksnakegames.realms.comandos.EntitySpawnCommand;
+import com.darksnakegames.realms.eventos.PlayerListener;
 import lombok.val;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -14,6 +16,7 @@ public class RealmsPlugin extends SimplePlugin {
 	public void onPluginStart() {
 
 		registerCommand(new CoheteCommand());
+		registerCommand(new EntitySpawnCommand());
 		registerEvents(new PlayerListener());
 	}
 
