@@ -52,7 +52,13 @@ public class EntitySpawnCommand extends SimpleCommand {
 			location = getPlayer().getLocation();
 		}
 
-		location.getWorld().spawnEntity(location, entity);
+		try {
+			location.getWorld().spawnEntity(location, entity);
+		} catch (final NullPointerException ex) {
+			returnTell("An error ocurred. ERR EBN9C. Maybe the world?");
+			ex.printStackTrace();
+		}
+
 		tell("&eSpawned " + entity.toString() + " in " + Common.shortLocation(location));
 
 	}
