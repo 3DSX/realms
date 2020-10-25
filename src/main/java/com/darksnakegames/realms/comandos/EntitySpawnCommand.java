@@ -59,11 +59,6 @@ public class EntitySpawnCommand extends SimpleCommand {
 	}
 
 	private static boolean checkWorldExists(final String world) {
-		for (final String mundotmp : Common.getWorldNames()) {
-			if (mundotmp.equals(world))
-				return true;
-		}
-
-		return false;
+		return Common.getWorldNames().contains(world);
 	}
 }
