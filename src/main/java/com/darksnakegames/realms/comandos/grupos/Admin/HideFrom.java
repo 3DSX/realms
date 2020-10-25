@@ -9,7 +9,7 @@ import org.mineacademy.fo.remain.Remain;
 import java.util.concurrent.TimeUnit;
 
 public class HideFrom extends SimpleSubCommand {
-
+	
 	//TODO: implement in JoinEvent. Ref: private final Set<UUID> adminsOcultosParaTodos = new HashSet<>();
 
 	public HideFrom(final SimpleCommandGroup parent) {
@@ -20,7 +20,7 @@ public class HideFrom extends SimpleSubCommand {
 		setUsage("<player>");
 
 		setDescription("&cAdmin Hide function");
-		
+
 		setPermission("admin.hide");
 		setPermissionMessage("You are not an Admin");
 

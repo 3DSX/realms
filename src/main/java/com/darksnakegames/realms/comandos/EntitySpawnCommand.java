@@ -74,9 +74,9 @@ public class EntitySpawnCommand extends SimpleCommand {
 				return completeLastWord(getPlayer().getLocation().getBlockZ());
 			case 5:
 				return completeLastWord(Common.getWorldNames());
+			default:
+				return new ArrayList<>();
 		}
-
-		return new ArrayList<>();
 	}
 
 	private static boolean checkWorldExists(final String world) {
