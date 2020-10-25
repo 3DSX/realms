@@ -2,6 +2,7 @@ package com.darksnakegames.realms;
 
 import com.darksnakegames.realms.comandos.CoheteCommand;
 import com.darksnakegames.realms.comandos.EntitySpawnCommand;
+import com.darksnakegames.realms.comandos.grupos.AdminCommands;
 import com.darksnakegames.realms.eventos.PlayerListener;
 import lombok.val;
 import org.bukkit.Material;
@@ -15,8 +16,16 @@ public class RealmsPlugin extends SimplePlugin {
 	@Override
 	public void onPluginStart() {
 
+		/**
+		 * Commands
+		 */
 		registerCommand(new CoheteCommand());
 		registerCommand(new EntitySpawnCommand());
+		registerCommands("admin|a", new AdminCommands());
+
+		/**
+		 * Events
+		 */
 		registerEvents(new PlayerListener());
 	}
 
