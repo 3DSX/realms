@@ -7,6 +7,9 @@ import org.bukkit.entity.EntityType;
 import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EntitySpawnCommand extends SimpleCommand {
 	public EntitySpawnCommand() {
 		super("crear");
@@ -56,6 +59,24 @@ public class EntitySpawnCommand extends SimpleCommand {
 
 		tell("&eSpawned " + entity.toString() + " in " + Common.shortLocation(location));
 
+	}
+
+	@Override
+	protected List<String> tabComplete() {
+		switch (args.length) {
+			case 1:
+				return completeLastWord(EntityType.values());
+			case 2:
+				return completeLastWord(getPlayer().getLocation().getBlockX());
+			case 3:
+				return completeLastWord(getPlayer().getLocation().getBlockY());
+			case 4:
+				return completeLastWord(getPlayer().getLocation().getBlockZ());
+			case 5:
+				return completeLastWord(Common.getWorldNames());
+		}
+
+		return new ArrayList<>();
 	}
 
 	private static boolean checkWorldExists(final String world) {

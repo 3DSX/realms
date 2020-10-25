@@ -20,6 +20,9 @@ public class HideFrom extends SimpleSubCommand {
 		setUsage("<player>");
 
 		setDescription("&cAdmin Hide function");
+		
+		setPermission("admin.hide");
+		setPermissionMessage("You are not an Admin");
 
 		setCooldown(1, TimeUnit.SECONDS);
 		setCooldownMessage("Do NOT Spam!");
