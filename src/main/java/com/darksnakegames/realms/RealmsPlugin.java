@@ -4,6 +4,7 @@ import com.darksnakegames.realms.comandos.CoheteCommand;
 import com.darksnakegames.realms.comandos.EntitySpawnCommand;
 import com.darksnakegames.realms.comandos.grupos.AdminCommands;
 import com.darksnakegames.realms.eventos.PlayerListener;
+import com.darksnakegames.realms.tareas.AnuncioTarea;
 import lombok.val;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -13,6 +14,9 @@ import org.mineacademy.fo.Common;
 import org.mineacademy.fo.plugin.SimplePlugin;
 
 public class RealmsPlugin extends SimplePlugin {
+
+	private AnuncioTarea anuncio;
+
 	@Override
 	public void onPluginStart() {
 
@@ -27,8 +31,32 @@ public class RealmsPlugin extends SimplePlugin {
 		 * Events
 		 */
 		registerEvents(new PlayerListener());
+
+		/**
+		 * Tasks
+		 */
+		anuncio = new AnuncioTarea();
+		anuncio.runTaskTimer(this, 0, 30 * 20);
 	}
 
+	private void pararAnuncio() {
+		if (anuncio != null) {
+			try {
+				anuncio.cancel();
+			} catch (final IllegalStateException ex) {
+			}
+		}
+	}
+
+	@Override
+	protected void onPluginStop() {
+		pararAnuncio();
+	}
+
+	@Override
+	protected void onPluginReload() {
+		pararAnuncio();
+	}
 
 	@EventHandler
 	public void onJoin(final PlayerJoinEvent event) {
@@ -37,6 +65,6 @@ public class RealmsPlugin extends SimplePlugin {
 		Common.broadcast(player.getName() + " Se ha unido");
 
 		player.getInventory().addItem(new ItemStack(Material.ACACIA_LOG
-		, 1));
+				, 1));
 	}
 }
