@@ -20,11 +20,20 @@ public class AnuncioTarea extends BukkitRunnable {
 	@Override
 	public void run() {
 		final String prefix = "&b[ANUNCIO] &7";
-		final String mensaje;
-		final String mensajeAnterior = "";
+		String mensaje = "";
+		String mensajeAnterior = "";
 
-		//TODO: Message badge to prevent repeating same messages twice, fullfi
-		mensaje = RandomUtil.nextItem(mensajes, (String s) -> !s.equals(mensajeAnterior));
+		if (mensajeAnterior.equals("")) {
+			mensaje = RandomUtil.nextItem(mensajes);
+		} else {
+			do {
+				mensaje = RandomUtil.nextItem(mensajes);
+			} while (mensajeAnterior.equals(mensaje));
+		}
+		
+		//TODO: Message badge to prevent repeating same messages twice
+
+		mensajeAnterior = mensaje;
 
 		for (final Player player : Remain.getOnlinePlayers())
 			Common.tell(player, prefix + mensaje);
