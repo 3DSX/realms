@@ -12,6 +12,8 @@ import java.util.List;
 
 public class AnuncioTarea extends BukkitRunnable {
 
+	private String mensajeAnterior = "";
+
 	private final List<String> mensajes = Arrays.asList(
 			"Bienvenido a Realms. &yUna experienca única, inólvidable",
 			"Estas preparado para el &b#Regregso?",
@@ -20,8 +22,7 @@ public class AnuncioTarea extends BukkitRunnable {
 	@Override
 	public void run() {
 		final String prefix = "&b[ANUNCIO] &7";
-		String mensaje = "";
-		String mensajeAnterior = "";
+		String mensaje;
 
 		if (mensajeAnterior.equals("")) {
 			mensaje = RandomUtil.nextItem(mensajes);
@@ -30,7 +31,7 @@ public class AnuncioTarea extends BukkitRunnable {
 				mensaje = RandomUtil.nextItem(mensajes);
 			} while (mensajeAnterior.equals(mensaje));
 		}
-		
+
 		//TODO: Message badge to prevent repeating same messages twice
 
 		mensajeAnterior = mensaje;
@@ -38,5 +39,4 @@ public class AnuncioTarea extends BukkitRunnable {
 		for (final Player player : Remain.getOnlinePlayers())
 			Common.tell(player, prefix + mensaje);
 	}
-
 }
